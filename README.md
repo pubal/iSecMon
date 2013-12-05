@@ -8,3 +8,5 @@ In order to learn a little about mobile application development, I’ve starting
 Right now, I’m just displaying the current SANS Infocon and linking to the Internet Storm Center.
 
 This is available in the Google Play Store. As I have time, I’ll be adding the additional functionality I mentioned.
+
+https://play.google.com/store/apps/details?id=com.intellavis.internetsecuritymonitor
