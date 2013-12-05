@@ -1,4 +1,4 @@
-iSecMon - Internet Secuirty Monitor
+iSecMon - Internet Security Monitor
 =======
 
 Android Application for Internet Threat Monitoring
