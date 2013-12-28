@@ -26,7 +26,7 @@
 
     <ImageView
         android:id="@+id/IBMalertcon"
-        android:layout_width="90dp"
+        android:layout_width="85dp"
         android:layout_height="45dp"
         android:scaleType="fitXY"
         android:layout_alignTop="@+id/button2" />
@@ -37,14 +37,15 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/button1"
         android:layout_below="@+id/button1"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="25dp"
         android:onClick="gotoAlertcon"
         android:text="@string/button_alertcon" />
 
     <ImageView
         android:id="@+id/DellCSI"
- 		android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+ 		android:layout_width="180dp"
+        android:layout_height="65dp"
+        android:scaleType="fitXY"
         android:layout_alignTop="@+id/button3" />
 
     <Button
@@ -53,9 +54,26 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/button1"
         android:layout_below="@+id/button2"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="25dp"
         android:onClick="gotoDellCSI"
         android:text="@string/button_dellcsi" />
+    
+    <ImageView
+        android:id="@+id/DHS"
+ 		android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:scaleType="fitXY"
+        android:layout_alignTop="@+id/button4" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/button1"
+        android:layout_below="@+id/button3"
+        android:layout_marginTop="25dp"
+        android:onClick="gotoDHS"
+        android:text="@string/button_dhs" />
     
     
 </RelativeLayout>

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">iSecMon</string>
+    <string name="app_name">Internet Security Monitor</string>
     <string name="action_settings">Settings</string>
     <string name="action_refresh">Refresh</string>
     <string name="button_infocon">SANS ISC</string>
     <string name="button_alertcon">XFORCE</string>
     <string name="button_dellcsi">SecureWorks</string>
+    <string name="button_dhs">DHS Alerts</string>
     <string name="SANS_url">http://isc.sans.edu/images/status.gif</string>
 
 </resources>

@@ -31,9 +31,12 @@ public class MainActivity extends Activity {
 			"http://www-03.ibm.com/security/iss/img/alertcon.gif";
 	public static final String Dell_CSI_url = 
 			"http://www.secureworks.com/assets/image_store/other-jpegs/Cyber_Security_Index.jpg";
+	public static final String DHS_url = 
+			"http://www.dhs.gov/sites/default/files/ntas/dhs-ntas-badge-small.jpg";
 	ImageView imgViewSANS;
 	ImageView imgViewIBM;
 	ImageView imgViewDELL;
+	ImageView imgViewDHS;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,9 @@ public class MainActivity extends Activity {
 		ImageLoadTaskDELL taskDELL = new ImageLoadTaskDELL();
 		imgViewDELL = (ImageView)findViewById(R.id.DellCSI);
 		taskDELL.execute(new String[] { Dell_CSI_url });
+		ImageLoadTaskDHS taskDHS = new ImageLoadTaskDHS();
+		imgViewDHS = (ImageView)findViewById(R.id.DHS);
+		taskDHS.execute(new String[] { DHS_url });
 	}	
 	
 	@Override
@@ -135,6 +141,13 @@ public class MainActivity extends Activity {
 		startActivity(alertcon);
 	}
 	
+	public void gotoDHS(View view){
+		String alertURL = "http://www.dhs.gov/national-terrorism-advisory-system";
+		Intent alertcon = new Intent(Intent.ACTION_VIEW);
+		alertcon.setData(Uri.parse(alertURL));
+		startActivity(alertcon);
+	}
+	
 	private class ImageLoadTaskSANS extends AsyncTask<String, Void, Bitmap>{
 		
 		protected Bitmap doInBackground(String... url){
@@ -201,7 +214,7 @@ public class MainActivity extends Activity {
 		
 	}
 	
-private class ImageLoadTaskDELL extends AsyncTask<String, Void, Bitmap>{
+	private class ImageLoadTaskDELL extends AsyncTask<String, Void, Bitmap>{
 		
 		protected Bitmap doInBackground(String... url){
 			Bitmap bmp = null;
@@ -212,6 +225,38 @@ private class ImageLoadTaskDELL extends AsyncTask<String, Void, Bitmap>{
 		
 		protected void onPostExecute(Bitmap result){
 			imgViewDELL.setImageBitmap(result);
+		}
+		
+		private Bitmap getBitmap(String url)
+		{
+			try
+			{
+			Bitmap bmp = null;
+			HttpClient client = new DefaultHttpClient();
+			URI imageURI = new URI(url);
+			HttpGet req = new HttpGet();
+			req.setURI(imageURI);
+			HttpResponse response = client.execute(req);
+			bmp = BitmapFactory.decodeStream(response.getEntity().getContent());
+			return bmp;
+			}catch (Exception e){
+				System.out.println("Exc="+e);
+				return null;
+			}
+		}
+		
+	}
+	private class ImageLoadTaskDHS extends AsyncTask<String, Void, Bitmap>{
+		
+		protected Bitmap doInBackground(String... url){
+			Bitmap bmp = null;
+			bmp = getBitmap(url[0]);
+			
+			return bmp; 
+		}
+		
+		protected void onPostExecute(Bitmap result){
+			imgViewDHS.setImageBitmap(result);
 		}
 		
 		private Bitmap getBitmap(String url)
